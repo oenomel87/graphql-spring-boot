@@ -1,0 +1,23 @@
+schema {
+    query: Query
+}
+
+type Query {
+    departments(
+        deptId: ID
+        deptCode: String
+        name: String
+    ) : [Department]
+}
+
+type Department {
+    deptId: ID!
+    name: String!
+    deptCode: String!
+    deptPathId: String!
+    parentDeptId: Int
+    parentDeptCode: String
+    fromDate: String!
+    toDate: String
+    childDepartments: [Department]
+}
