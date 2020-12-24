@@ -7,7 +7,10 @@ type Query {
         deptId: ID
         deptCode: String
         name: String
+        parentDeptId: Int
     ) : [Department]
+
+    department(deptId: ID) : Department
 }
 
 type Department {

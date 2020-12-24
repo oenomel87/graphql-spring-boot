@@ -1,10 +1,14 @@
 package io.oenomel.tree.app;
 
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serializable;
 
-@Data
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class DepartmentCriteria implements Serializable {
 
     private static final long serialVersionUID = 6709747870689690826L;
@@ -14,4 +18,12 @@ public class DepartmentCriteria implements Serializable {
     private String deptCode;
 
     private String name;
+
+    private Long parentDeptId;
+
+    private String parentDeptCode;
+
+    private String fromDate;
+
+    private String toDate;
 }

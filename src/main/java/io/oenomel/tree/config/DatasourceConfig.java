@@ -25,11 +25,11 @@ public class DatasourceConfig {
                                 "jdbc:mysql://%s:%s/%s?serverTimezone=Asia/Seoul&verifyServerCertificate=false&useSSL=false&requireSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8",
                                 "127.0.0.1",
                                 3306,
-                                "eva_pay"
+                                "tree_hr"
                         )
                 )
-                .username("dservice")
-                .password("tjqltm!!@")
+                .username("root")
+                .password("l1720pq")
                 .build();
     }
 }

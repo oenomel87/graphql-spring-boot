@@ -30,6 +30,9 @@ public class DepartmentEntity implements Serializable {
     @Column(name = "parent_dept_id")
     private Long parentDeptId;
 
+    @Column(name = "parent_dept_code")
+    private String parentDeptCode;
+
     @Column(name = "dept_path_id")
     private String deptPathId;
 
