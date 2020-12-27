@@ -1,6 +1,7 @@
 package io.oenomel.tree.app;
 
 import lombok.*;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,6 +9,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "department")
+@DynamicUpdate
 @Getter
 @Setter
 @Builder
@@ -22,16 +24,10 @@ public class DepartmentEntity implements Serializable {
     @Column(name = "dept_id")
     private Long deptId;
 
-    @Column(name = "dept_code")
-    private String deptCode;
-
     private String name;
 
     @Column(name = "parent_dept_id")
     private Long parentDeptId;
-
-    @Column(name = "parent_dept_code")
-    private String parentDeptCode;
 
     @Column(name = "dept_path_id")
     private String deptPathId;

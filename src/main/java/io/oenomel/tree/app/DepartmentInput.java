@@ -3,18 +3,16 @@ package io.oenomel.tree.app;
 import lombok.*;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Department implements Serializable {
+public class DepartmentInput implements Serializable {
 
-    private static final long serialVersionUID = 5768473469636764187L;
+    private static final long serialVersionUID = -4179737074863830554L;
 
     private Long deptId;
 
@@ -28,13 +26,11 @@ public class Department implements Serializable {
 
     private String toDate;
 
-    private List<Department> childDepartments;
-
-    public static Department convert(DepartmentEntity e) {
+    public static DepartmentInput convert(DepartmentEntity e) {
         var format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         var from = e.getFromDate().format(format);
         var to = e.getToDate() != null ? e.getToDate().format(format) : null;
-        return Department.builder()
+        return DepartmentInput.builder()
                 .deptId(e.getDeptId())
                 .deptPathId(e.getDeptPathId())
                 .name(e.getName())

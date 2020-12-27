@@ -1,5 +1,7 @@
 server:
   port: 8888
+  error:
+    include-stacktrace: always
 
 spring:
   config:
@@ -31,6 +33,7 @@ graphiql:
 
 logging:
   level:
+    org.springframework: INFO
     org.hibernate.SQL: DEBUG
     org.hibernate.type: TRACE
     com.querydsl.sql: DEBUG

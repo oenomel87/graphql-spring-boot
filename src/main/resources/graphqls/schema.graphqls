@@ -1,11 +1,11 @@
 schema {
     query: Query
+    mutation: Mutation
 }
 
 type Query {
     departments(
         deptId: ID
-        deptCode: String
         name: String
         parentDeptId: Int
     ) : [Department]
@@ -13,14 +13,25 @@ type Query {
     department(deptId: ID) : Department
 }
 
+type Mutation {
+    saveDepartment(department: DepartmentInput!) : Department!
+}
+
 type Department {
     deptId: ID!
     name: String!
-    deptCode: String!
     deptPathId: String!
     parentDeptId: Int
-    parentDeptCode: String
     fromDate: String!
     toDate: String
     childDepartments: [Department]
+}
+
+input DepartmentInput {
+    deptId: ID
+    name: String!
+    deptPathId: String
+    parentDeptId: Int
+    fromDate: String!
+    toDate: String
 }

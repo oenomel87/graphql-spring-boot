@@ -25,10 +25,8 @@ public class DepartmentRepositoryImpl extends QuerydslRepositorySupport implemen
     public List<DepartmentEntity> findDepartments(DepartmentCriteria criteria) {
         return this.queryFactory.selectFrom(departmentEntity)
             .where(this.eqDeptId(criteria),
-                    this.eqDeptCode(criteria),
                     this.likeName(criteria),
-                    this.eqParentDeptId(criteria),
-                    this.eqParentDeptCode(criteria))
+                    this.eqParentDeptId(criteria))
             .fetch();
     }
 
@@ -42,18 +40,8 @@ public class DepartmentRepositoryImpl extends QuerydslRepositorySupport implemen
         return detpId != null ? departmentEntity.deptId.eq(detpId) : null;
     }
 
-    private BooleanExpression eqDeptCode(DepartmentCriteria criteria) {
-        var deptCode = criteria.getDeptCode();
-        return deptCode != null && !deptCode.isEmpty() ? departmentEntity.deptCode.eq(deptCode) : null;
-    }
-
     private BooleanExpression eqParentDeptId(DepartmentCriteria criteria) {
         var parentDeptId = criteria.getParentDeptId();
         return parentDeptId != null ? departmentEntity.parentDeptId.eq(parentDeptId) : null;
-    }
-
-    private BooleanExpression eqParentDeptCode(DepartmentCriteria criteria) {
-        var parentDeptCode = criteria.getParentDeptCode();
-        return parentDeptCode != null && !parentDeptCode.isEmpty() ? departmentEntity.parentDeptCode.eq(parentDeptCode) : null;
     }
 }

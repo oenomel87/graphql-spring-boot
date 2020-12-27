@@ -9,7 +9,5 @@ import java.util.List;
 @Repository
 public interface DepartmentRepository extends JpaRepository<DepartmentEntity, Long>, JpaSpecificationExecutor<DepartmentEntity>, DepartmentCustomRepository {
 
-    List<DepartmentEntity> findByDeptIdOrDeptCodeOrName(Long deptId, String deptCode, String name);
-
     List<DepartmentEntity> findByParentDeptId(Long parentDeptId);
 }
